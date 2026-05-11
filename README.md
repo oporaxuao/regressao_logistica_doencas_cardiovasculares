@@ -1,51 +1,79 @@
-Predição de Doenças Cardiovasculares com Regressão Logística 🏥
-Este projeto foi desenvolvido como parte do Módulo 27 do curso de Ciência de Dados, focado na implementação e análise de um modelo de Regressão Logística para identificar a propensão a doenças cardiovasculares com base em dados clínicos e hábitos de vida.
+# 🫀 Cardiovascular Disease Prediction with Logistic Regression
 
-📋 Visão Geral
-O objetivo principal foi construir um classificador binário capaz de prever se um paciente possui ou não doença cardiovascular (cardio_disease), utilizando variáveis como idade, peso, altura, níveis de glicose, consumo de álcool e atividade física.
+Binary classification model to predict cardiovascular disease risk based on clinical data and lifestyle habits, built as a baseline for clinical decision support.
 
-🛠️ Tecnologias e Ferramentas
-Linguagem: Python
+---
 
-Ambiente: PyCHarm / Jupyter Notebook
+## 🎯 Business Objective
 
-Bibliotecas Principais: * Pandas e NumPy (Manipulação de dados)
+Cardiovascular disease is one of the leading causes of death worldwide. Early detection based on routinely collected clinical data can dramatically improve patient outcomes. This project builds a predictive model that estimates a patient's probability of having cardiovascular disease using variables such as age, weight, glucose levels, alcohol consumption, and physical activity — enabling preventive screening at scale.
 
-Seaborn e Matplotlib (Visualização de dados)
+---
 
-Scikit-Learn (Machine Learning e Métricas)
+## 🗂️ Methodology
 
-Imbalanced-learn (SMOTE para balanceamento de classes)
+### 1. Data Preprocessing & Cleaning
+- Handled decimal separators and performed data type conversions
+- Detected and treated outliers in physical variables (height and weight)
+- Applied `StandardScaler` for feature normalization, ensuring proper convergence of the linear model
 
-🚀 Etapas do Projeto
-1. Pré-processamento e Limpeza
-Tratamento de separadores decimais e conversão de tipos de dados.
+### 2. Exploratory Data Analysis (EDA)
+- Used Boxplots and Violin Plots to visualize that **age** and **weight** are the most visually distinct risk factors between positive and negative groups
+- Computed a correlation matrix to assess relationships between lifestyle habits (smoking, alcohol) and the target variable
 
-Análise de outliers em variáveis físicas (altura e peso).
+### 3. Class Balancing (SMOTE)
+- Applied **SMOTE** (Synthetic Minority Over-sampling Technique) to balance the training set to a 50/50 ratio
+- Prevented the model from being biased toward the majority class
 
-Padronização de escala com StandardScaler para garantir a convergência do modelo linear.
+### 4. Model Training & Evaluation
+- Algorithm: **Logistic Regression**
+- Coefficient analysis revealed that **Age** and **Glucose level** were the strongest predictors for a positive diagnosis
 
-2. Análise Exploratória (EDA)
-Uso de Boxplots e Violin Plots para identificar que a idade e o peso são fatores de risco visualmente distintos entre os grupos.
+---
 
-Matriz de correlação para identificar relações entre hábitos (como fumo e álcool) e a variável alvo.
+## 📊 Results
 
-3. Balanceamento de Dados (SMOTE)
-Devido à leve disparidade entre as classes no dataset original, utilizei a técnica SMOTE (Synthetic Minority Over-sampling Technique) para equilibrar a base de treino em 50/50, evitando vieses no treinamento.
+| Metric | Value |
+|---|---|
+| Accuracy | 64% |
+| AUC-ROC | 0.70 |
+| Precision / Recall | Balanced — no significant overfitting |
 
-4. Modelo de Machine Learning
-Algoritmo: Regressão Logística.
+> **Note:** The AUC-ROC of 0.70 represents a solid clinical baseline. Logistic Regression was chosen intentionally for its interpretability — understanding *why* a model makes a prediction is critical in healthcare contexts.
 
-Performance: O modelo atingiu uma AUC-ROC de 0.70, demonstrando um poder de discriminação aceitável para um baseline clínico.
+---
 
-Insights dos Coeficientes: A análise dos pesos revelou que a Idade e o nível de Glicose foram os preditores mais impactantes para o diagnóstico positivo.
+## 🛠️ Tech Stack
 
-📊 Resultados Técnicos
-Acurácia: 64%
+| Category | Tools |
+|---|---|
+| Language | Python |
+| Data Manipulation | Pandas, NumPy |
+| Visualization | Matplotlib, Seaborn |
+| Machine Learning | Scikit-learn (Logistic Regression, StandardScaler) |
+| Class Balancing | Imbalanced-learn (SMOTE) |
+| Environment | Jupyter Notebook |
 
-AUC-ROC: 0.70
+---
 
-Equilíbrio: O modelo apresentou métricas de Precisão e Recall balanceadas, indicando uma boa capacidade de generalização sem overfitting.
+## ▶️ How to Run
 
-✍️ Autor
-João - Graduado em Análise e Desenvolvimento de Sistemas e Estudante de Ciência de Dados.
+```bash
+# Clone the repository
+git clone https://github.com/oporaxuao/cardiovascular-disease-logistic-regression.git
+cd cardiovascular-disease-logistic-regression
+
+# Install dependencies
+pip install pandas numpy matplotlib seaborn scikit-learn imbalanced-learn jupyter
+
+# Launch the notebook
+jupyter notebook
+```
+
+---
+
+## 👤 Author
+
+**João Alfredo de Sousa Siqueira**
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-oporaxuao-blue)](https://linkedin.com/in/oporaxuao)
+[![GitHub](https://img.shields.io/badge/GitHub-oporaxuao-black)](https://github.com/oporaxuao)
